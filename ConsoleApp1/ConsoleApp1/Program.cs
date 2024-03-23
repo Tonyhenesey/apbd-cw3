@@ -5,12 +5,14 @@ using ConsoleApp1.Containers;
 // var b = "text";
 // var c = true;
 //
-// var container = new Container(12.0)
-// {
-//     CargoWeight = 10.0
-// };
-//
-// Console.WriteLine(container.CargoWeight);
+var container = new Container(12.0)
+{
+    CargoWeight = 10.0
+};
+
+container.Unload(5.0);
+container.Load(10);
+Console.WriteLine(container.CargoWeight);
 
 // int? number = 1;
 // number = null;
@@ -30,4 +32,3 @@ List<int> list2 = new () { 1, 2, 3, 4 };
 
 // HashMap
 
-Dictionary<PossibleProducts,double products = new ();

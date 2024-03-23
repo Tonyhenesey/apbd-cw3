@@ -3,9 +3,14 @@ using ConsoleApp1.Interfaces;
 
 namespace ConsoleApp1.Containers;
 
-public abstract class Container : IContainer 
+public class Container : IContainer
 {
+    private string _serialNumber;
     private double _cargoWeight;
+    private double _height;
+    private double _selfWeight;
+    private double _depth;
+    
 
     public double CargoWeight { get; set; }
 
@@ -14,15 +19,22 @@ public abstract class Container : IContainer
         CargoWeight = cargoWeight;
     }
 
-    public void Unload()
+    
+
+    public void Unload(double undoCargoWeight)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Weight after unload: ");
+        CargoWeight = CargoWeight - undoCargoWeight;
     }
 
     public virtual void Load(double cargoWeight)
     {
-        Console.WriteLine("Container");
-        CargoWeight = cargoWeight;
-        // throw new OverkillException();
+        Console.WriteLine("Weight after load: ");
+        CargoWeight = CargoWeight+cargoWeight;
+        if (CargoWeight>30)
+        {
+            throw new OverFillException();
+        }
+        
     }
 }
