@@ -13,11 +13,12 @@ public class Container : IContainer
     
 
     public double CargoWeight { get; set; }
+    
+    
+    
+    
 
-    // public Container(double cargoWeight)
-    // {
-    //     CargoWeight = cargoWeight;
-    // }
+    
 
     public Container(int serialNumber, double height, double selfWeight, double depth, double cargoWeight)
     {
@@ -30,7 +31,7 @@ public class Container : IContainer
         SerialNumberGenerator(serialNumber,numbers);
     }
 
-  
+   
 
 
     public void Unload(double undoCargoWeight)
