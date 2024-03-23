@@ -14,6 +14,9 @@ using ConsoleApp1.Containers;
 // container.Load(10);
 // Console.WriteLine(container.CargoWeight);
 
+var lc = new LiquidContainer(1, 2, 3, 4, 1);
+var lc2 = new LiquidContainer(1, 2, 3, 4, 1);
+
 // int? number = 1;
 // number = null;
 //

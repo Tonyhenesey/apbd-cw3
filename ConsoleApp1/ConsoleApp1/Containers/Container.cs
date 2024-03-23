@@ -21,11 +21,13 @@ public class Container : IContainer
 
     public Container(int serialNumber, double height, double selfWeight, double depth, double cargoWeight)
     {
+        List<int> numbers = [];
         _serialNumber = serialNumber;
         _height = height;
         _selfWeight = selfWeight;
         _depth = depth;
         CargoWeight = cargoWeight;
+        SerialNumberGenerator(serialNumber,numbers);
     }
 
   
@@ -48,8 +50,16 @@ public class Container : IContainer
         
     }
     
-    public void SerialNumberGenerator(int serialNumber)
+    public void SerialNumberGenerator(int serialNumber,List<int> numbers)
     {
         string number = "KON-L-" + serialNumber;
+        numbers.Add(serialNumber);
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            if (serialNumber==numbers[i])
+            {
+                throw new SameSerialNumberException();
+            }
+        }
     }
 }
