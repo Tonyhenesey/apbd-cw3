@@ -3,7 +3,7 @@ using ConsoleApp1.Interfaces;
 
 namespace ConsoleApp1.Containers;
 
-public class Container : IContainer , IHazardNotifer
+public class Container : IContainer 
 {
     private int _serialNumber;
     private double _cargoWeight;

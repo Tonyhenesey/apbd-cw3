@@ -14,7 +14,7 @@ using ConsoleApp1.Containers;
 // container.Load(10);
 // Console.WriteLine(container.CargoWeight);
 
-var lc = new LiquidContainer(13, 2, 3, 4, 1,Container.LoadType.DANGEROUS);
+var lc = new LiquidContainer(13, 2, 3, 4, 2,Container.LoadType.DANGEROUS);
 var lc2 = new LiquidContainer(14, 2, 3, 4, 1,Container.LoadType.NORMAL);
 var lc3 = new LiquidContainer(14, 2, 3, 4, 1,Container.LoadType.NORMAL);
 
