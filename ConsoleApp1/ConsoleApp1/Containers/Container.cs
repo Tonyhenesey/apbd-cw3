@@ -22,6 +22,10 @@ public class Container : IContainer
     public double CargoWeight { get; set; }
 
 
+    public Container()
+    {
+        
+    }
     public Container(int serialNumber, double height, double selfWeight, double depth, double cargoWeight,
         LoadType loadType)
     {
