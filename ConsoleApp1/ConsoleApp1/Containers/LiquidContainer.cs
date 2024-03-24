@@ -2,7 +2,7 @@ namespace ConsoleApp1.Containers;
 
 public class LiquidContainer : Container
 {
-    public LiquidContainer(int serialNumber, double height, double selfWeight, double depth, double cargoWeight) : base(serialNumber, height, selfWeight, depth, cargoWeight)
+    public LiquidContainer(int serialNumber, double height, double selfWeight, double depth, double cargoWeight,LoadType loadType) : base(serialNumber, height, selfWeight, depth, cargoWeight,loadType)
     {
         
     }
