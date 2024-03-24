@@ -79,4 +79,15 @@ public class Container : IContainer
                               "CONTAINER: " + _serialNumber);
         }
     }
+
+    public override string ToString()
+    {
+        return $"Serial Number: {_serialNumber}, " +
+               $"Cargo Weight: {_cargoWeight} kilograms, " +
+               $"Height: {_height} meters, " +
+               $"Self Weight: {_selfWeight} kilograms, " +
+               $"Depth: {_depth} meters, " +
+               $"Load Type: {_loadType}";
+    }
+
 }

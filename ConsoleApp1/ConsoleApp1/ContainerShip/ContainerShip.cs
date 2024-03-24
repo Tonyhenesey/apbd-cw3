@@ -5,8 +5,8 @@ namespace ConsoleApp1.ContainerShip;
 public class ContainerShip : Container
 {
     private List<Container> _containers;
-    private double _maxvelocity;
-    private double _maxShipweight;
+    private double _maxVelocity;
+    private double _maxShipWeight;
     private int _maxContainerCount;
     int _serialNumber;
     double _pressure;
@@ -20,22 +20,22 @@ public class ContainerShip : Container
     public ContainerShip(List<Container> containers, double maxvelocity, double maxShipweight, int maxContainerCount)
     {
         _containers = containers;
-        _maxvelocity = maxvelocity;
-        _maxShipweight = maxShipweight;
+        _maxVelocity = maxvelocity;
+        _maxShipWeight = maxShipweight;
         _maxContainerCount = maxContainerCount;
     }
 
     public ContainerShip(int serialNumber, double height, double selfWeight, double depth, double cargoWeight, LoadType loadType, List<Container> containers, double maxvelocity, double maxShipweight, int maxContainerCount) : base(serialNumber, height, selfWeight, depth, cargoWeight, loadType)
     {
         _containers = containers;
-        _maxvelocity = maxvelocity;
-        _maxShipweight = maxShipweight;
+        _maxVelocity = maxvelocity;
+        _maxShipWeight = maxShipweight;
         _maxContainerCount = maxContainerCount;
     }
 
-    public void CreateContainer(Container container)
+    public void CreateContainer()
     {
-        container = null;
+        Container container = null;
         Console.WriteLine("Wybierz rodzaj kontenera:\n" +
                           "1. GasContainer\n" +
                           "2. LiquidContainer\n" +
@@ -128,5 +128,42 @@ public class ContainerShip : Container
         }
 
         Console.WriteLine($"Utworzono kontener typu: {container.GetType().Name}");
+    }
+    public void LoadContainer(Container container)
+    {
+        if (_containers.Count < _maxContainerCount)
+        {
+            _containers.Add(container);
+            Console.WriteLine("Kontener został załadowany na statek.");
+        }
+        else
+        {
+            Console.WriteLine("Nie można załadować kontenera: statek ma już maksymalną liczbę kontenerów.");
+        }
+    }
+    public void UnloadContainer(Container container)
+    {
+        if (_containers.Remove(container))
+        {
+            Console.WriteLine("Kontener został usunięty ze statku.");
+        }
+        else
+        {
+            Console.WriteLine("Nie znaleziono kontenera na statku.");
+        }
+    }
+    public void PrintContainerInfo(Container container)
+    {
+        
+        Console.WriteLine(container.ToString());
+    }
+    public void PrintShipInfo()
+    {
+        Console.WriteLine("Statek: Maksymalna prędkość: " + _maxVelocity + " Maksymalna waga: " + _maxShipWeight + " Maksymalna liczba kontenerów: " +_maxContainerCount);
+        Console.WriteLine("Ładunek na statku:");
+        foreach (Container container in _containers)
+        {
+            PrintContainerInfo(container); 
+        }
     }
 }
