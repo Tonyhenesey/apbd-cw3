@@ -8,6 +8,8 @@ public class GasContainer : Container , IHazardNotifer
     private GasContainer _gasContainer;
     private LoadType _loadType;
     private int _serialNumber;
+    private double _cargoWeight;
+    
     
     
 
@@ -15,6 +17,7 @@ public class GasContainer : Container , IHazardNotifer
     {
         _loadType = loadType;
         _serialNumber = serialNumber;
+        _cargoWeight = cargoWeight;
 
     }
     public void SendHazardNotification(string message)
@@ -26,5 +29,17 @@ public class GasContainer : Container , IHazardNotifer
                               "POSIBILITY OF EXPLODING!\n" +
                               "CONTAINER: "+ _serialNumber);
         }
+    }
+
+    public override void Unload(double undoCargoWeight)
+    {
+        undoCargoWeight = 0.95 * _cargoWeight;
+        base.Unload(undoCargoWeight);
+        
+    }
+
+    public override void Load(double cargoWeight)
+    {
+        base.Load(cargoWeight);
     }
 }

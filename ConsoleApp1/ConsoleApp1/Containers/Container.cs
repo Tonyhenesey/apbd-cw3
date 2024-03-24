@@ -43,7 +43,7 @@ public class Container : IContainer
    
 
 
-    public void Unload(double undoCargoWeight)
+    public virtual void Unload(double undoCargoWeight)
     {
         Console.WriteLine("Weight after unload: ");
         CargoWeight = CargoWeight - undoCargoWeight;
