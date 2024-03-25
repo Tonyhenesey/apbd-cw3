@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 class Program
 {
-    static void Main(string[] args)
+  static void Main(string[] args)
     {
         List<Container> containers = new List<Container>();
-        ContainerShip containerShip = new ContainerShip(containers, 20, 10000, 100);
+        ContainerShip containerShip = new ContainerShip( 20, 10000, 100);
 
         while (true)
         {
@@ -24,7 +24,21 @@ class Program
             switch (operation)
             {
                 case "1":
-                    // ContainerShip containerShip2 = new ContainerShip();
+                    Console.WriteLine("Wprowadź dane nowego statku kontenerowego:");
+
+                    Console.Write("Maksymalna prędkość: ");
+                    double maxVelocity = double.Parse(Console.ReadLine());
+
+                    Console.Write("Maksymalna waga statku: ");
+                    double maxShipWeight = double.Parse(Console.ReadLine());
+
+                    Console.Write("Maksymalna liczba kontenerów: ");
+                    int maxContainerCount = int.Parse(Console.ReadLine());
+
+                    
+                    containerShip = new ContainerShip(maxVelocity, maxShipWeight, maxContainerCount);
+
+                    Console.WriteLine("Nowy statek kontenerowy został stworzony.");
                     break;
 
                 case "2":

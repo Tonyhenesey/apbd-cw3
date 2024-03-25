@@ -17,20 +17,30 @@ public class ContainerShip : Container
     LoadType _loadType;
     private double _temperature;
 
-    public ContainerShip(List<Container> containers, double maxvelocity, double maxShipweight, int maxContainerCount)
+    public ContainerShip(double maxvelocity, double maxShipweight, int maxContainerCount)
     {
-        _containers = containers;
+        _containers = new List<Container>();
         _maxVelocity = maxvelocity;
         _maxShipWeight = maxShipweight;
         _maxContainerCount = maxContainerCount;
     }
 
-    public ContainerShip(int serialNumber, double height, double selfWeight, double depth, double cargoWeight, LoadType loadType, List<Container> containers, double maxvelocity, double maxShipweight, int maxContainerCount) : base(serialNumber, height, selfWeight, depth, cargoWeight, loadType)
+    public double MaxVelocity
     {
-        _containers = containers;
-        _maxVelocity = maxvelocity;
-        _maxShipWeight = maxShipweight;
-        _maxContainerCount = maxContainerCount;
+        get => _maxVelocity;
+        set => _maxVelocity = value;
+    }
+
+    public double MaxShipWeight
+    {
+        get => _maxShipWeight;
+        set => _maxShipWeight = value;
+    }
+
+    public int MaxContainerCount
+    {
+        get => _maxContainerCount;
+        set => _maxContainerCount = value;
     }
 
     public void CreateContainer()
@@ -159,11 +169,20 @@ public class ContainerShip : Container
     }
     public void PrintShipInfo()
     {
-        Console.WriteLine("Statek: Maksymalna prędkość: " + _maxVelocity + " Maksymalna waga: " + _maxShipWeight + " Maksymalna liczba kontenerów: " +_maxContainerCount);
+        Console.WriteLine($"Statek: Maksymalna prędkość: {_maxVelocity}, Maksymalna waga: {_maxShipWeight}, Maksymalna liczba kontenerów: {_maxContainerCount}");
         Console.WriteLine("Ładunek na statku:");
-        foreach (Container container in _containers)
+        foreach (var container in _containers)
         {
-            PrintContainerInfo(container); 
+            Console.WriteLine(container.ToString());
         }
+    }
+    public override string ToString()
+    {
+        return $"Serial Number: {_serialNumber}, " +
+               $"Cargo Weight: {_cargoWeight} kilograms, " +
+               $"Height: {_height} meters, " +
+               $"Self Weight: {_selfWeight} kilograms, " +
+               $"Depth: {_depth} meters, " +
+               $"Load Type: {_loadType}";
     }
 }
